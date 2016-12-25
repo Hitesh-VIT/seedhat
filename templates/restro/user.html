@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Home- Page</title>
+    {% load staticfiles %}
+    <link rel="stylesheet" href=" {% static "css/bootstrap.min.css" %}">
+    <script src= " {% static "js/jquery.min.js" %}"></script>
+    <script src=" {% static "js/bootstrap.min.js" %}"></script>
+
+
+
+</head>
+<body>
+
+    <table class="table table-hover">
+
+        <thead>
+
+            <tr>
+
+
+
+                <th>Restaurant id</th>
+                <th>Discount</th>
+                <th> Click To Continue</th>
+
+
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            {% for x in view %}
+            <tr>
+
+
+
+                <td>{{ x.restarant_id }}</td>
+                <td>{{ x.discount_rate }}</td>
+                <td> <a href="{% url 'user_redeem' key x.restarant_id  %}" class="btn btn-info" role="button">Discount</a></td>
+
+
+
+
+            </tr>
+        {%endfor%}
+        </tbody>
+
+    </table>
+
+
+    {% if special_true %}
+  <table class="table table-hover">
+
+        <thead> <h1>Special Discounts</h1>
+
+            <tr>
+
+
+
+                <th>Restaurant id</th>
+                <th>Discount</th>
+                <th> Click To Continue</th>
+
+
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            {% for x in special %}
+            <tr>
+
+
+
+                <td>{{ x.restarant_id }}</td>
+                <td>{{ x.discount_rate }}</td>
+                <td> <a href="{% url 'user_redeem' key x.restarant_id  %}" class="btn btn-info" role="button">Discount</a></td>
+
+
+
+
+            </tr>
+        {%endfor%}
+        </tbody>
+
+    </table>
+{% endif %}
+</body>
+</html>

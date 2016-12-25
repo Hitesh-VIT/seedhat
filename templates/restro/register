@@ -1,0 +1,6 @@
+<form method="post">
+{%csrf_token%}
+<h1>alert</h1>
+{{register_form.as_table}}
+<button type="submit">Save Changes</button>
+</form>
